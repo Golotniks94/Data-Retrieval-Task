@@ -66,10 +66,10 @@ const App = () => {
     }
   }, [])
 
-  const onGridReady = useCallback(() => {
+  const onGridReady = useCallback((params) => {
     fetch('https://opendata.ecdc.europa.eu/covid19/casedistribution/json')
       .then((resp) => resp.json())
-      .then((data) => setRowData(data.records))
+      .then((data) => params.api.setRowData(data.records))
   }, [])
 
   const tableHandler = () => {
